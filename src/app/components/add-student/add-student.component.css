@@ -1,0 +1,14 @@
+.full-width{
+
+    width:100%;
+    margin-bottom:15px;
+
+}
+
+mat-radio-group{
+
+    display:flex;
+    gap:20px;
+    margin-top:10px;
+
+}

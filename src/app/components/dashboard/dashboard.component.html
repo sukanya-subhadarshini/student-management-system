@@ -1,0 +1,226 @@
+<mat-sidenav-container class="dashboard-container">
+
+  <!-- Sidebar -->
+  <mat-sidenav mode="side" opened class="sidebar">
+
+    <div class="logo">
+      <mat-icon>school</mat-icon>
+      <h2>Student CMS</h2>
+      <p>Admin Panel</p>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="menu">
+
+      <button mat-button class="menu-btn active-menu">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </button>
+
+      <button mat-button class="menu-btn" routerLink="/students">
+        <mat-icon>groups</mat-icon>
+        <span>Students</span>
+      </button>
+
+      <button mat-button class="menu-btn" routerLink="/students">
+        <mat-icon>person_add</mat-icon>
+        <span>Add Student</span>
+      </button>
+
+      <button mat-button class="menu-btn" routerLink="/students">
+        <mat-icon>search</mat-icon>
+        <span>Search Student</span>
+      </button>
+
+      <button mat-button class="menu-btn" routerLink="/login">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+
+    </div>
+
+  </mat-sidenav>
+
+  <!-- Main -->
+  <mat-sidenav-content>
+
+    <!-- Toolbar -->
+
+    <mat-toolbar class="toolbar">
+
+      <div class="toolbar-title">
+        <mat-icon>school</mat-icon>
+        <span>Student Course Management</span>
+      </div>
+
+      <span class="spacer"></span>
+
+      <button mat-icon-button>
+        <mat-icon>notifications</mat-icon>
+      </button>
+
+      <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+
+      <mat-menu #profileMenu="matMenu">
+
+        <button mat-menu-item>
+          <mat-icon>person</mat-icon>
+          Profile
+        </button>
+
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          Settings
+        </button>
+
+        <button mat-menu-item routerLink="/login">
+          <mat-icon>logout</mat-icon>
+          Logout
+        </button>
+
+      </mat-menu>
+
+    </mat-toolbar>
+
+    <!-- Welcome -->
+
+    <mat-card class="welcome-card">
+
+      <div>
+
+        <h1>👋 Welcome Back, Admin</h1>
+
+        <p>Manage your students efficiently.</p>
+
+      </div>
+
+      <div class="welcome-right">
+
+        <h3>{{today}}</h3>
+
+        <p class="status">🟢 System Online</p>
+
+      </div>
+
+    </mat-card>
+
+    <!-- Statistics -->
+
+    <div class="stats-container">
+
+      <mat-card class="stat-card blue">
+        <mat-icon>groups</mat-icon>
+        <h2>{{totalStudents}}</h2>
+        <p>Total Students</p>
+      </mat-card>
+
+      <mat-card class="stat-card purple">
+        <mat-icon>menu_book</mat-icon>
+        <h2>{{totalCourses}}</h2>
+        <p>Total Courses</p>
+      </mat-card>
+
+      <mat-card class="stat-card green">
+        <mat-icon>male</mat-icon>
+        <h2>{{maleStudents}}</h2>
+        <p>Male Students</p>
+      </mat-card>
+
+      <mat-card class="stat-card pink">
+        <mat-icon>female</mat-icon>
+        <h2>{{femaleStudents}}</h2>
+        <p>Female Students</p>
+      </mat-card>
+
+    </div>
+
+    <!-- Chart -->
+
+    <div class="middle-section">
+
+      <mat-card class="chart-card">
+
+        <div class="card-header">
+          <h2>📊 Student Distribution</h2>
+        </div>
+
+        <canvas id="genderChart"></canvas>
+
+      </mat-card>
+
+      <mat-card class="action-card">
+
+        <h2>⚡ Quick Actions</h2>
+
+        
+
+        <button mat-raised-button color="accent" routerLink="/students">
+          <mat-icon>list</mat-icon>
+          Student List
+        </button>
+
+    
+      </mat-card>
+
+    </div>
+
+    <!-- Recent Students -->
+
+    <mat-card class="recent-card">
+
+      <div class="card-header">
+        <h2>👨‍🎓 Recent Students</h2>
+      </div>
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Gender</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let s of students">
+
+            <td>{{s.name}}</td>
+
+            <td>{{s.email}}</td>
+
+            <td>{{s.course}}</td>
+
+            <td>
+
+              <span
+                class="badge active"
+                [ngClass]="{
+                  'male-badge': s.gender=='Male',
+                  'female-badge': s.gender=='Female'
+                }">
+
+                {{s.gender}}
+
+              </span>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </mat-card>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

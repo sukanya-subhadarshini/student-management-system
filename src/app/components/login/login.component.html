@@ -1,0 +1,77 @@
+<div class="page">
+
+  <!-- LEFT SIDE -->
+  <div class="left">
+
+    <div class="overlay"></div>
+
+    <div class="content">
+
+      <h1>STUDENT COURSE</h1>
+      <h2>MANAGEMENT SYSTEM</h2>
+
+      <p>
+        Manage Courses, Students and Academics in one powerful platform.
+      </p>
+
+      <div class="features">
+
+        <div class="feature">
+          <img src="https://cdn-icons-png.flaticon.com/512/29/29302.png">
+          <span>Smart Learning</span>
+        </div>
+
+        <div class="feature">
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png">
+          <span>Better Education</span>
+        </div>
+
+        <div class="feature">
+          <img src="https://cdn-icons-png.flaticon.com/512/2583/2583344.png">
+          <span>Bright Future</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- RIGHT SIDE LOGIN -->
+  <div class="right">
+
+    <div class="card">
+
+      <div class="logo">🎓</div>
+
+      <h3>Welcome Back!</h3>
+      <p>Login to continue your journey</p>
+
+      <!-- Email -->
+      <input
+        type="email"
+        placeholder="Enter Email"
+        [(ngModel)]="email">
+
+      <!-- Password -->
+      <input
+        type="password"
+        placeholder="Enter Password"
+        [(ngModel)]="password">
+      <button (click)="login()">
+  LOGIN
+</button>
+      <div style="margin-top:20px; text-align:center;">
+        <span>Don't have an account? </span>
+
+        <a routerLink="/register"
+           style="color:#4CAF50;font-weight:bold;text-decoration:none;cursor:pointer;">
+          Register Here
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

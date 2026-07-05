@@ -1,0 +1,73 @@
+<div class="overlay">
+  <div class="register-box">
+
+    <h2>Student Registration</h2>
+
+    <form (ngSubmit)="onSubmit()" #regForm="ngForm">
+
+      <input
+        type="text"
+        name="name"
+        [(ngModel)]="student.name"
+        placeholder="Enter Name"
+        required
+      />
+
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="student.email"
+        placeholder="Enter Email"
+        required
+      />
+
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="student.password"
+        placeholder="Enter Password"
+        required
+      />
+
+      <input
+        type="text"
+        name="mobile"
+        [(ngModel)]="student.mobile"
+        placeholder="Enter Mobile"
+        required
+      />
+
+      <input
+        type="text"
+        name="address"
+        [(ngModel)]="student.address"
+        placeholder="Enter Address"
+      />
+
+      <!-- COURSE DROPDOWN -->
+      <select name="course" [(ngModel)]="student.course" required>
+        <option value="">Select Course</option>
+        <option *ngFor="let c of courses" [value]="c">
+          {{ c }}
+        </option>
+      </select>
+
+      <select name="gender" [(ngModel)]="student.gender">
+        <option value="">Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <input
+        type="date"
+        name="dob"
+        [(ngModel)]="student.dob"
+      />
+
+      <button type="submit">Register</button>
+
+    </form>
+
+  </div>
+</div>

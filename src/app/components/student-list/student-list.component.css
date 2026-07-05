@@ -1,0 +1,191 @@
+/* ==========================
+   PAGE
+========================== */
+
+.student-container {
+  padding: 25px;
+  background: #f4f7fc;
+  min-height: 100vh;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.header h1 {
+  color: #1e293b;
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.header p {
+  color: #64748b;
+  font-size: 15px;
+}
+
+.header button {
+  height: 45px;
+  border-radius: 10px;
+}
+
+/* ==========================
+   SEARCH
+========================== */
+
+.search-card {
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+.search-field {
+  width: 100%;
+}
+
+/* ==========================
+   TABLE CARD
+========================== */
+
+.table-card {
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  overflow: auto;
+}
+
+/* ==========================
+   TABLE
+========================== */
+
+table {
+  width: 100%;
+}
+
+.mat-mdc-header-row,
+.mat-header-row {
+  background: #2563eb;
+}
+
+.mat-mdc-header-cell,
+.mat-header-cell {
+  color: white !important;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.mat-mdc-cell,
+.mat-cell {
+  padding: 15px 10px;
+}
+
+.mat-mdc-row:hover,
+.mat-row:hover {
+  background: #f1f5f9;
+}
+
+/* ==========================
+   GENDER BADGES
+========================== */
+
+.male {
+  background: #dbeafe;
+  color: #2563eb;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.female {
+  background: #fce7f3;
+  color: #db2777;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ==========================
+   ACTION BUTTONS
+========================== */
+
+button[mat-icon-button] {
+  transition: .3s;
+}
+
+button[mat-icon-button]:hover {
+  transform: scale(1.15);
+}
+
+/* ==========================
+   PAGINATOR
+========================== */
+
+mat-paginator {
+  margin-top: 15px;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 10px;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 900px) {
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .header button {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .student-container {
+    padding: 15px;
+  }
+
+  table {
+    min-width: 900px;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .header p {
+    font-size: 13px;
+  }
+
+}

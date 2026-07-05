@@ -1,0 +1,152 @@
+<div class="student-container">
+
+  <!-- HEADER -->
+  <div class="header">
+
+    <div>
+      <h1>🎓 Student Management</h1>
+      <p>Manage all student records efficiently</p>
+    </div>
+
+    <div style="display:flex; gap:10px;">
+
+      <!-- PDF BUTTON -->
+      <button mat-raised-button color="accent" (click)="downloadPDF()">
+        <mat-icon>picture_as_pdf</mat-icon>
+        Export PDF
+      </button>
+
+      <!-- ADD STUDENT -->
+      <button mat-raised-button color="primary" (click)="openAddStudentDialog()">
+        <mat-icon>person_add</mat-icon>
+        Add Student
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- SEARCH BOX -->
+  <mat-card class="search-card">
+
+    <mat-form-field appearance="outline" class="search-field">
+
+      <mat-label>Search Student</mat-label>
+
+      <input matInput
+             placeholder="Enter student name..."
+             [(ngModel)]="searchText"
+             (keyup)="searchStudent()">
+
+      <button mat-icon-button matSuffix>
+        <mat-icon>search</mat-icon>
+      </button>
+
+    </mat-form-field>
+
+  </mat-card>
+
+  <!-- TABLE -->
+  <mat-card class="table-card">
+
+    <table mat-table [dataSource]="filteredStudents" matSort>
+
+      <!-- ID -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let student">{{student.id}}</td>
+      </ng-container>
+
+      <!-- NAME -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let student">{{student.name}}</td>
+      </ng-container>
+
+      <!-- EMAIL -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let student">{{student.email}}</td>
+      </ng-container>
+
+      <!-- MOBILE -->
+      <ng-container matColumnDef="mobile">
+        <th mat-header-cell *matHeaderCellDef>Mobile</th>
+        <td mat-cell *matCellDef="let student">{{student.mobile}}</td>
+      </ng-container>
+
+      <!-- COURSE -->
+      <ng-container matColumnDef="course">
+        <th mat-header-cell *matHeaderCellDef>Course</th>
+        <td mat-cell *matCellDef="let student">{{student.course}}</td>
+      </ng-container>
+
+      <!-- DOB -->
+      <ng-container matColumnDef="dob">
+        <th mat-header-cell *matHeaderCellDef>Date of Birth</th>
+        <td mat-cell *matCellDef="let student">
+          {{ student.dob ? (student.dob | date:'dd-MM-yyyy') : '' }}
+        </td>
+      </ng-container>
+
+      <!-- GENDER -->
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef>Gender</th>
+
+        <td mat-cell *matCellDef="let student">
+
+          <span class="male" *ngIf="student.gender=='Male'">
+            Male
+          </span>
+
+          <span class="female" *ngIf="student.gender=='Female'">
+            Female
+          </span>
+
+        </td>
+
+      </ng-container>
+
+      <!-- ACTION -->
+      <ng-container matColumnDef="action">
+
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+
+        <td mat-cell *matCellDef="let student">
+
+          <!-- EDIT -->
+          <button mat-icon-button color="primary">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <!-- DELETE -->
+          <button mat-icon-button color="warn"
+                  (click)="deleteStudent(student.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+
+        </td>
+
+      </ng-container>
+
+      <!-- HEADER ROW -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+      <!-- DATA ROW -->
+      <tr mat-row
+          *matRowDef="let row; columns: displayedColumns;"
+          (click)="selectStudent(row)">
+      </tr>
+
+    </table>
+
+    <!-- PAGINATOR -->
+    <mat-paginator
+      [pageSize]="5"
+      [pageSizeOptions]="[5,10,20]"
+      showFirstLastButtons>
+    </mat-paginator>
+
+  </mat-card>
+
+</div>

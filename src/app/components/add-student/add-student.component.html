@@ -1,0 +1,77 @@
+<h2 mat-dialog-title>Add Student</h2>
+
+<mat-dialog-content>
+
+  <form>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="student.name" name="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="student.email" name="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Mobile</mat-label>
+      <input matInput [(ngModel)]="student.mobile" name="mobile">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+
+      <mat-label>Course</mat-label>
+
+      <mat-select [(ngModel)]="student.course" name="course">
+
+        <mat-option value="Frontend Development">Frontend Development</mat-option>
+
+<mat-option value="Backend Development">Backend Development</mat-option>
+
+<mat-option value="Spring Boot">Spring Boot</mat-option>
+
+<mat-option value="Full Stack Development">Full Stack Development</mat-option>
+
+<mat-option value="Database (MySQL)">Database (MySQL)</mat-option>
+
+<mat-option value="DevOps Basics">DevOps Basics</mat-option>
+
+<mat-option value="UI/UX Design">UI/UX Design</mat-option>
+
+      </mat-select>
+
+    </mat-form-field>
+
+    <label>Gender</label>
+
+    <mat-radio-group [(ngModel)]="student.gender" name="gender">
+
+      <mat-radio-button value="Male">Male</mat-radio-button>
+
+      <mat-radio-button value="Female">Female</mat-radio-button>
+
+    </mat-radio-group>
+    <mat-form-field appearance="outline" class="full-width">
+
+  <mat-label>Date of Birth</mat-label>
+
+  <input matInput type="date" [(ngModel)]="student.dob" name="dob">
+
+</mat-form-field>
+
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+
+  <button mat-button mat-dialog-close>
+    Cancel
+  </button>
+
+  <button mat-raised-button color="primary" (click)="save()">
+    Save
+  </button>
+
+</mat-dialog-actions>

@@ -1,0 +1,34 @@
+<mat-sidenav-container class="dashboard-container">
+
+  <mat-sidenav mode="side" opened class="sidebar">
+
+    <!-- Yahan apna sidebar ka code paste karo -->
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <mat-toolbar class="toolbar">
+
+      <div class="toolbar-title">
+        <mat-icon>school</mat-icon>
+        <span>Student Course Management</span>
+      </div>
+
+      <span class="spacer"></span>
+
+      <button mat-icon-button>
+        <mat-icon>notifications</mat-icon>
+      </button>
+
+    </mat-toolbar>
+
+    <div class="page-content">
+
+      <router-outlet></router-outlet>
+
+    </div>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
